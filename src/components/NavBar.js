@@ -1,7 +1,8 @@
-import '../assets/main.css'
 import React from 'react'
 import Logo from '../images/logofriki.png'
 import CartWidget from './CartWidget';
+import { NavLink } from 'react-router-dom';
+import '../assets/main.css'
 
 function NavBar({toggleOpen}) {
   return (
@@ -16,11 +17,14 @@ function NavBar({toggleOpen}) {
       </div>
       <div className='pr-4 hidden md:block'>
         <div className='flex space-x-5'>
-        <a href="#" className='text-white px-4 hover:text-pink-500'>HOME</a>
+          <NavLink to='/' className='text-white px-4 hover:text-pink-500'>HOME</NavLink>
         <a href="#" className='text-white px-4 hover:text-pink-500'>CATÁLOGO</a>
         <a href="#" className='text-white px-4 hover:text-pink-500'>CÓMO COMPRAR</a>
         <a href="#" className='text-white px-4 hover:text-pink-500'>CONTACTO</a>
-        <CartWidget />
+        <NavLink to='cart'> 
+          <CartWidget />
+        </NavLink>
+        
         </div>
       </div>
     </nav>

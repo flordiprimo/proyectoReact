@@ -8,7 +8,7 @@ function NavBar({toggleOpen}) {
   return (
     <nav className='flex justify-between items-center h-20 bg-neutral-900 relative shadow-sm pl-4'>
       <div>
-        <img src={Logo} />
+        <NavLink to='/' className={({ isActive }) => isActive ? 'py-4' : 'py-4'}><img src={Logo} /></NavLink>
       </div>
       <div className='px-4 cursor-pointer md:hidden' onClick={toggleOpen}>
       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 stroke-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -17,11 +17,12 @@ function NavBar({toggleOpen}) {
       </div>
       <div className='pr-4 hidden md:block'>
         <div className='flex space-x-5'>
-          <NavLink to='/' className='text-white px-4 hover:text-pink-500'>HOME</NavLink>
-        <a href="#" className='text-white px-4 hover:text-pink-500'>CATÁLOGO</a>
-        <a href="#" className='text-white px-4 hover:text-pink-500'>CÓMO COMPRAR</a>
-        <a href="#" className='text-white px-4 hover:text-pink-500'>CONTACTO</a>
-        <NavLink to='cart'> 
+          <NavLink to='/' className={({ isActive }) => isActive ? 'active' : 'notActive'}>HOME</NavLink>
+          <NavLink to='categoria/vinilos' className={({ isActive }) => isActive ? 'active' : 'notActive'}>VINILOS</NavLink>
+          <NavLink to='categoria/cds' className={({ isActive }) => isActive ? 'active' : 'notActive'}>CDs</NavLink>
+          <NavLink to='comocomprar' className={({ isActive }) => isActive ? 'active' : 'notActive'}>CÓMO COMPRAR</NavLink>
+          <NavLink to='contacto' className={({ isActive }) => isActive ? 'active' : 'notActive'}>CONTACTO</NavLink>
+        <NavLink to='carrito' className={({ isActive }) => isActive ? 'active' : 'notActive'}> 
           <CartWidget />
         </NavLink>
         

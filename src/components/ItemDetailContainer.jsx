@@ -1,7 +1,28 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
+import Loading from './Loading'
+import { getFetch } from '../helpers/getFetch'
+import ItemDetail from './ItemDetail'
+import { useParams } from 'react-router-dom'
 
 export default function ItemDetailContainer() {
-  return (
-    <div>ItemDetailContainer</div>
-  )
+  const [loading, setLoading] = useState(true)
+  const [product,setProduct] = useState({})
+  const { detalleId } = useParams()
+
+useEffect(() => {
+  getFetch
+  .then(resp => setProduct(resp.find(prod => prod.id === detalleId )))
+  .catch(err => console.log(err))
+  .finally(() => setLoading(false))
+  console.log(product)
+}, [])
+return (
+  <>
+  { loading ? <Loading />
+    :
+    <ItemDetail product={product} />}
+  </>
+)
+  
 }

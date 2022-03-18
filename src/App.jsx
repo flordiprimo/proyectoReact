@@ -28,8 +28,14 @@ function App() {
                                   />
                                 }
         />
+        <Route path="/categoria/:id" element={
+                                  <ItemListContainer
+                                      greeting='Bienvenidxs a Friki'
+                                  />
+                                }
+        />
         <Route path="/detalle/:detalleId" element={<ItemDetailContainer />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/carrito" element={<Cart />} />
         <Route path="/notFound" element={<Componente404 />} />
         <Route path="/*" element={<Navigate to='/' /> }  />
       </Routes>

@@ -18,3 +18,11 @@
 .card {
     @apply rounded overflow-hidden shadow-lg;
 }
+
+.active {
+    @apply text-white px-4 py-4 hover:text-pink-500 border-b-2 border-pink-500 ;
+}
+
+.notActive {
+    @apply text-white px-4 py-4 hover:text-pink-500;
+}

@@ -398,14 +398,20 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-full{
   width: 100%;
 }
-.w-3\/4{
-  width: 75%;
-}
 .w-1\/2{
   width: 50%;
 }
+.w-3\/4{
+  width: 75%;
+}
 .w-6{
   width: 1.5rem;
+}
+.flex-none{
+  flex: none;
+}
+.grow{
+  flex-grow: 1;
 }
 .cursor-pointer{
   cursor: pointer;

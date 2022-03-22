@@ -1,15 +1,17 @@
 import React from 'react'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
-export default function ItemCount({ stock, initial, onAdd }) {
+export default function ItemCount({ product, stock, initial, onAdd }) {
     
     initial = parseInt(initial)
     stock = parseInt(stock)
 
     const [ count, setCount ] = useState( initial )
+    const [ stockProducto , setStockProducto] = useState (stock)
 
     const handleCountSumar = () => {
-        if ( count < stock ){
+        if ( count < stockProducto ){
             setCount (count + 1)
         }
         
@@ -20,28 +22,31 @@ export default function ItemCount({ stock, initial, onAdd }) {
         }
         
     }
-
-    const addToCart = () => {
-        if (count <= stock ){
-            onAdd = count
-            console.log(`Agrega al carrito ${onAdd}`)
-            stock = stock - onAdd
-            console.log(`Me quedan ${stock} en stock`)
+    const addToCart = (e) => {
+        console.log(e)
+        if (count <= stockProducto ){
+            setStockProducto(stockProducto - count)
+            console.log(product.name)
+            console.log(`${count} agregado al carrito`)
+            console.log(`Quedan ${stockProducto - count} en stock`)
+            onAdd(count)
         }
-        if (count > stock) {
+        if (count > stockProducto) {
             console.log(`No hay stock suficiente`)
         }
     }
+
   return (
-      <>
-      <div>Producto</div> 
-      <div className="flex flex-row">
-        <button className="bg-black p-2 text-white hover:bg-pink-500" onClick={handleCountRestar}>-</button>
-        <div className="p-2">{count}</div>
-        <button className="bg-black p-2 text-white hover:bg-pink-500" onClick={handleCountSumar}>+</button>
-      </div>
-      <button className="bg-black p-2 text-white hover:bg-pink-500 my-2" onClick={addToCart}>Agregar al carrito</button>
-      </>
+    <>
+    <div className="mt-4 flex flex-row w-1/2">
+        <button className="flex-none bg-black p-2 text-white hover:bg-pink-500" onClick={handleCountRestar}>-</button>
+        <div className="p-2 grow text-center">{count}</div>
+        <button className="flex-none bg-black p-2 text-white hover:bg-pink-500" onClick={handleCountSumar}>+</button>
+    </div>
     
+    <button className="bg-black p-2 text-white hover:bg-pink-500 my-2 w-1/2" onClick={addToCart}>Agregar al carrito</button>
+</>
   )
 }
+
+

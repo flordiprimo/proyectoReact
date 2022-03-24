@@ -23,12 +23,8 @@ export default function ItemCount({ product, stock, initial, onAdd }) {
         
     }
     const addToCart = (e) => {
-        console.log(e)
         if (count <= stockProducto ){
             setStockProducto(stockProducto - count)
-            console.log(product.name)
-            console.log(`${count} agregado al carrito`)
-            console.log(`Quedan ${stockProducto - count} en stock`)
             onAdd(count)
         }
         if (count > stockProducto) {

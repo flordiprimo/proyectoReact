@@ -11,7 +11,7 @@ export default function Item({prod}) {
       <div className="font-bold text-l mb-1">{prod.name}</div>
       <p className="text-black text-base">{prod.categoria}</p>
       <p className="text-black font-bold text-base">${prod.price}</p>
-      <Link to={`detalle/${prod.id}`}><button className="mt-2 btn btn-pink uppercase">Más info</button></Link>
+      <Link to={`../detalle/${prod.id}`}><button className="mt-2 btn btn-pink uppercase">Más info</button></Link>
     </div>
   </div>
   )

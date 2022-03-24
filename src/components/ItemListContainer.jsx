@@ -34,7 +34,6 @@ useEffect(()=>{
     { loading ? <Loading />
       :
       <ItemList prods={prods} />}
-    <ItemCount stock="5" initial="1" onAdd="0" />
     </>
     
   )

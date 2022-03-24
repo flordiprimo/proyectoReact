@@ -1,23 +1,25 @@
 import React from 'react'
 import '../assets/main.css'
 import ItemCount from './ItemCount'
-import { useState } from 'react'
+import { useState} from 'react'
 import BotonDetail from './BotonDetail'
+import { useCartContext } from '../context/CartContext'
+
 
 export default function ItemDetail( {product}) {
+
+  const {addToCart} = useCartContext()
 
   const [inputType, setInputType] = useState('count')
 
   const onAdd = (cant) => {
-    console.log('Ejecuto onAdd')
-    console.log(cant)
     handleInter()
+    addToCart( {...product, cantidad: cant} )
+
   }
   const handleInter = () => {
     setInputType('boton')
 }
-console.log(inputType)
-
   return (
     <>
     <div className="w-full flex justify-center">

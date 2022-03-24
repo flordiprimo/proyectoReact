@@ -15,7 +15,6 @@ export default function ItemDetail( {product}) {
   const onAdd = (cant) => {
     handleInter()
     addToCart( {...product, cantidad: cant} )
-
   }
   const handleInter = () => {
     setInputType('boton')

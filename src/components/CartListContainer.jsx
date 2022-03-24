@@ -3,7 +3,10 @@ import CartList from './CartList'
 
 function CartListContainer() {
   return (
-    <CartList />
+    <div>
+      <CartList />
+    </div>
+    
   )
 }
 

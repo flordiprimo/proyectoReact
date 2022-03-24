@@ -12,7 +12,7 @@ export default function Cart() {
       <CartListContainer />
     </div>
     <div>
-      <button className="m-2 btn btn-pink uppercase" onClick={vaciarCarrito}>Vaciar Carrito</button>
+      <button className="m-4 btn btn-pink uppercase" onClick={vaciarCarrito}>Vaciar Carrito</button>
     </div>
     </>
   )

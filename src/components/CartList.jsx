@@ -4,7 +4,7 @@ import {useCartContext} from '../context/CartContext'
 
 function CartList() {
 
-    const {cartList} = useCartContext()
+    const {cartList, cantidad} = useCartContext()
 
     if (cartList != []){
         return (
@@ -12,6 +12,7 @@ function CartList() {
                 <div className="">
                     {cartList.map((prod) => <CartItem prod={prod} key={prod.id} /> )} 
                 </div>
+                <div className='m-4'>Productos en el carrito: {cantidad}</div>
             </>
           )
     }

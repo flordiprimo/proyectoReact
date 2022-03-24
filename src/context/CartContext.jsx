@@ -8,11 +8,10 @@ function CartContextProvider({children}) {
     const [cartList, setCartList] = useState([])
 
     const addToCart = (item)=>{
-        if (
-            cartList.find( existingItem => existingItem.id == item.id)
-        ) {
-            const existingItem = cartList.find( existingItem => existingItem.id == item.id)
+        const existingItem = cartList.find( existingItem => existingItem.id == item.id)
+        if (existingItem) {
             existingItem.cantidad += item.cantidad
+            setCartList([...cartList])
         } else {
             setCartList([...cartList, item])
         }
@@ -22,12 +21,17 @@ function CartContextProvider({children}) {
         setCartList([]);
     }
 
+    const removeFromCart = (item)=>{
+        const notFound = cartList.filter(prod => prod !== item )
+        setCartList(notFound)
+    }
 
   return (
     <CartContext.Provider value={{
         cartList,
         addToCart,
         vaciarCarrito,
+        removeFromCart,
     }}>
         {children}
     </CartContext.Provider>

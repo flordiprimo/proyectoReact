@@ -3,6 +3,11 @@ import '../assets/main.css'
 import { useCartContext } from '../context/CartContext'
 
 function CartItem( {prod} ) {
+  const {removeFromCart, cartList} = useCartContext()
+  const onRemove = (e) =>{
+    removeFromCart(prod)
+  }
+
     const subtotal = prod.price * prod.cantidad
   return (
     <div className='flex flex-row m-2 border border-1 border-gray200'>
@@ -15,6 +20,7 @@ function CartItem( {prod} ) {
         </div>
         <div className='w-1/6  px-4 py-4'>
         <p className="text-black text-base">${subtotal}</p>
+        <button  className="bg-black rounded p-2 text-white hover:bg-pink-500 my-2 w-1/2" onClick={onRemove}>Borrar</button>
         </div>
     </div>
   )

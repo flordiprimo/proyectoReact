@@ -463,9 +463,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .border{
   border-width: 1px;
 }
-.border-2{
-  border-width: 2px;
-}
 .bg-black{
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));

@@ -1,6 +1,7 @@
 import React from 'react'
 import '../assets/main.css'
 import { useCartContext } from '../context/CartContext'
+import {RiDeleteBin5Fill} from "react-icons/ri";
 
 function CartItem( {prod} ) {
   const {removeFromCart} = useCartContext()
@@ -8,7 +9,6 @@ function CartItem( {prod} ) {
     removeFromCart(prod)
   }
 
-    const subtotal = prod.price * prod.cantidad
   return (
     <div className='flex flex-row m-4 border border-1 border-gray200'>
         <img className='w-1/6' src={prod.foto} alt={prod.name}/> 
@@ -19,8 +19,8 @@ function CartItem( {prod} ) {
         <p className="text-black text-base">Precio: ${prod.price}</p>
         </div>
         <div className='w-1/6  px-4 py-4'>
-        <p className="text-black text-base">${subtotal}</p>
-        <button  className="bg-black rounded p-2 text-white hover:bg-pink-500 my-2" onClick={onRemove}>Borrar</button>
+        <p className="text-black text-base">Subtotal: ${prod.subtotal}</p>
+        <button  className="bg-black rounded p-2 text-white hover:bg-pink-500 my-2" onClick={onRemove}><RiDeleteBin5Fill/></button>
         </div>
     </div>
   )

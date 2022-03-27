@@ -11,9 +11,6 @@ export default function Cart() {
     <div>
       <CartListContainer />
     </div>
-    <div>
-      <button className="m-4 btn btn-pink uppercase" onClick={vaciarCarrito}>Vaciar Carrito</button>
-    </div>
     </>
   )
 }

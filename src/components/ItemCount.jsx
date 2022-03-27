@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 
 export default function ItemCount({ product, stock, initial, onAdd }) {
     
@@ -22,14 +21,18 @@ export default function ItemCount({ product, stock, initial, onAdd }) {
         }
         
     }
-    const addToCart = (e) => {
-        if (count <= stockProducto ){
-            setStockProducto(stockProducto - count)
-            onAdd(count)
-        }
-        if (count > stockProducto) {
-            console.log(`No hay stock suficiente`)
-        }
+    //const addToCart = (e) => {
+      //  if (count <= stockProducto ){
+       //     setStockProducto(stockProducto - count)
+         //   onAdd(count)
+      //  }
+        //if (count > stockProducto) {
+          //  console.log(`No hay stock suficiente`)
+       // }
+    //}
+
+    const addToCart = (e) =>{
+        onAdd(count)
     }
 
   return (

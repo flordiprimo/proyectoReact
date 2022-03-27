@@ -14,7 +14,8 @@ export default function ItemDetail( {product}) {
 
   const onAdd = (cant) => {
     handleInter()
-    addToCart( {...product, cantidad: cant} )
+    const subtotal = product.price * cant
+    addToCart( {...product, cantidad: cant, subtotal: subtotal} )
   }
   const handleInter = () => {
     setInputType('boton')

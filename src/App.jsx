@@ -1,5 +1,6 @@
+
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
@@ -8,9 +9,10 @@ import MenuMobile from './components/MenuMobile';
 import NavBar from './components/NavBar';
 import './assets/main.css'
 import CartContextProvider from './context/CartContext';
+import { getFirestoreApp } from './firebase/config';
 
 function App() {
-
+  getFirestoreApp()
   const [isOpen, setIsOpen] = useState(false)
 
   const toggleOpen = () => {

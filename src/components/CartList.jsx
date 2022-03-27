@@ -1,6 +1,7 @@
 import React from 'react'
 import CartItem from './CartItem'
 import {useCartContext} from '../context/CartContext'
+import { Link } from 'react-router-dom'
 
 function CartList() {
 
@@ -15,7 +16,7 @@ function CartList() {
                 <div className='ml-4 font-bold text-xl'>Total: ${totalCarrito()}</div>
                 <div>
                     <button className="ml-4 mr-2 btn btn-gray uppercase" onClick={vaciarCarrito}>Vaciar Carrito</button>
-                    <button className="m-2 btn btn-black uppercase">Seguir comprando</button>
+                    <Link to='/'><button className="m-2 btn btn-black uppercase">Seguir comprando</button></Link>
                     <button className="m-2 btn btn-pink uppercase">Finalizar compra</button>
                 </div>
             </>

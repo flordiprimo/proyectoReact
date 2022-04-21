@@ -1,5 +1,4 @@
 {
-  "homepage":"https://flordiprimo.github.io/proyectoReact",
   "name": "ecommerce-diprimo",
   "version": "0.1.0",
   "private": true,
@@ -43,7 +42,6 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.2",
-    "gh-pages": "^3.2.3",
     "postcss": "^8.4.8",
     "postcss-cli": "^9.1.0",
     "tailwindcss": "^3.0.23"

@@ -38,7 +38,7 @@ function App() {
             />
             <Route path="/detalle/:detalleId" element={<ItemDetailContainer />} />
             <Route path="/carrito" element={<Cart />} />
-            <Route path="/proyectoReact" element={<Navigate to='/' /> }  />
+            <Route path="/proyectoReact/" element={<Navigate to='/' /> }  />
             <Route path="/notFound" element={<Component404 />} />
             <Route path="/*" element={<Navigate to='/notFound' /> }  />
           </Routes>

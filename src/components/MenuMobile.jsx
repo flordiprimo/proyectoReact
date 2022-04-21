@@ -1,10 +1,10 @@
-import '../assets/main.css'
 import React from 'react'
 import { NavLink } from 'react-router-dom';
+import '../assets/main.css'
 
 function MenuMobile(toggleOpen) {
   return (
-    <div className='grid grid-rows-5 text-center items-center bg-pink-500' onClick={toggleOpen}>
+    <div className='grid grid-rows-5 text-center items-center bg-pink-500' onClick={() =>toggleOpen}>
         <NavLink to='/' className='text-white p-4 hover:font-bold'>HOME</NavLink>
         <NavLink to='categoria/vinilos' className='text-white p-4 hover:font-bold'>VINILOS</NavLink>
         <NavLink to='categoria/cds' className='text-white p-4 hover:font-bold'>CDs</NavLink>

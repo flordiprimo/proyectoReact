@@ -1,17 +1,16 @@
-import '../assets/main.css'
 import React from 'react'
-import { useState } from 'react'
+import '../assets/main.css'
 import { useCartContext } from '../context/CartContext'
 
 function CartWidget() {
-  const { cantidad, cartList } = useCartContext()
+  const { quantity, cartList } = useCartContext()
 
   const condition = cartList.length > 0
 
   const Widget = () => {
       return (
         <div className='flex flex-row'>
-              <p className='ml-1 bg-pink-500 text-white px-1 rounded-full'>{cantidad}</p>
+              <p className='ml-1 bg-pink-500 text-white px-1 rounded-full'>{quantity}</p>
           </div>
       )
     }

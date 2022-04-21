@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-function Form({ createOrder, handleChange, dataForm}) {
+function Form({ createOrder, handleChange, dataForm, gotStock, checkEmail, validate }) {
 
   return (
     <>
-        <form onSubmit={createOrder} className='mr-3 p-3 border border-black'>
-            <label className='w-full my-2'>Nombre y Apellido:</label>
+        <form onSubmit={createOrder} className='bg-white border shadow-md rounded px-8 pt-6 pb-8 mb-4'>
+            <label className='w-full py-4 font-bold'>Nombre y Apellido:</label>
             <input
-                className='w-full p-2 border border-black'
+                className='w-full shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:outline-none focus:bg-white focus:border-pink-500 my-2'
                 type='text'
                 name='name'
                 placeholder='Tu Nombre y Apellido'
@@ -15,19 +15,19 @@ function Form({ createOrder, handleChange, dataForm}) {
                 onChange={handleChange}
                 required
             />
-            <label className='w-full my-2'>Teléfono:</label>
+            <label className='w-full py-4 font-bold'>Teléfono:</label>
             <input
-                className='w-full p-2 border border-black'
+                className='w-full shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:outline-none focus:bg-white focus:border-pink-500  my-2'
                 type='number'
                 name='phone'
-                placeholder='(Sin espacios ni guiones)'
+                placeholder='Sólo números, sin espacios ni guiones'
                 value={dataForm.phone}
                 onChange={handleChange}
                 required
             />
-            <label className='w-full my-2'>Email:</label>
+            <label className='w-full py-4 font-bold'>Email:</label>
             <input
-                className='w-full p-2 border border-black'
+                className='w-full shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:outline-none focus:bg-white focus:border-pink-500  my-2'
                 type='email'
                 name='email'
                 placeholder='email@algo.com'
@@ -35,17 +35,20 @@ function Form({ createOrder, handleChange, dataForm}) {
                 onChange={handleChange}
                 required
             />
-            <label className='w-full my-2'>Repetir tu email:</label>
+            <label className='w-full py-4 font-bold'>Repetir tu email:</label>
             <input
-                className='w-full p-2 border border-black'
-                type='email'
+                className='w-full shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:outline-none focus:bg-white focus:border-pink-500  my-2' 
                 name='email1'
                 placeholder='email@algo.com'
-                onChange={handleChange}
+                onChange={checkEmail}
                 required
-                //función para validar el mail
             />
+
+            { validate === false && <p className='text-sm text-red-500 italic'>Los emails no coinciden</p> }
+            { validate === true && <p className='text-sm text-green-500 italic'>Los emails coinciden</p>}
+
             <button className="btn btn-pink uppercase mt-6" type="submit">Finalizar compra</button>
+            {gotStock === false && <p className='mt-2 p-2 bg-red-200 border border-red-500'>Error al crear la orden: Alguno de los productos no tiene stock. Remover del carrito para continuar la compra</p>}
         </form>
     </>
   )

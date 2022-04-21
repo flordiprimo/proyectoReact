@@ -1,70 +1,79 @@
+import { collection, documentId, getDocs, getFirestore, query, where } from 'firebase/firestore'
 import React, { createContext, useContext, useState, useEffect } from 'react'
 
 const CartContext = createContext([])
 
 export const useCartContext = ()=> useContext(CartContext)
 
-const carritoLocalStorage = JSON.parse(localStorage.getItem('carrito')) || []
-const cantidadLocalStorage = JSON.parse(localStorage.getItem('cantidad')) || 0
+const cartLocalStorage = JSON.parse(localStorage.getItem('cart')) || []
+const quantityLocalStorage = JSON.parse(localStorage.getItem('quantity')) || 0
 
 function CartContextProvider({children}) {
-    const [cartList, setCartList] = useState(carritoLocalStorage)
-    const [cantidad, setCantidad] = useState(cantidadLocalStorage)
+    const [cartList, setCartList] = useState(cartLocalStorage)
+    const [quantity, setQuantity] = useState(quantityLocalStorage)
 
     const addToCart = (item)=>{
         const existingItem = cartList.find(prod => prod.id === item.id)
         if (existingItem) {
-          console.log(existingItem)
-            existingItem.cantidad += item.cantidad
+            existingItem.quantity += item.quantity
             existingItem.subtotal += item.subtotal
             setCartList(cartList)
-            sumarProductos(item)
+            addProducts(item)
 
         } else {
             setCartList([...cartList, item])
-            sumarProductos(item)
+            addProducts(item)
 
         }
     }
 
-    const vaciarCarrito = () =>{
+    const substFromCart = (item)=>{
+        const existingItem = cartList.find(prod => prod.id === item.id)
+        if (existingItem) {
+            existingItem.quantity -= item.quantity
+            existingItem.subtotal -= item.subtotal
+            setCartList(cartList)
+            substProducts(item)
+    }
+}
+
+    const emptyCart = () =>{
         setCartList([]);
-        setCantidad(0)
+        setQuantity(0)
     }
     const removeFromCart = (item)=>{
         const notFound = cartList.filter(prod => prod !== item )
         setCartList(notFound)
-        restarProductos(item)
-
+        substProducts(item)
     }
-    const sumarProductos = (item) =>{
-        setCantidad( cantidad + item.cantidad)
+    const addProducts = (item) =>{
+        setQuantity( quantity + item.quantity)
     }
-    const restarProductos = (item) =>{
-        setCantidad( cantidad - item.cantidad)
-
+    const substProducts = (item) =>{
+        setQuantity( quantity - item.quantity)
     }
-
-    const totalCarrito = ()=>{
+    const totalCart = ()=>{
         return cartList.reduce((acc,value) => acc + value.subtotal, 0)
     }
 
+
 useEffect(() => {
-  localStorage.setItem('carrito', JSON.stringify(cartList))
-  localStorage.setItem('cantidad', JSON.stringify(cantidad))
-},[cartList, cantidad])
+  localStorage.setItem('cart', JSON.stringify(cartList))
+  localStorage.setItem('quantity', JSON.stringify(quantity))
+},[cartList, quantity])
 
 
   return (
     <CartContext.Provider value={{
         cartList,
-        cantidad,
-        carritoLocalStorage,
-        cantidadLocalStorage,
+        quantity,
+        cartLocalStorage,
+        quantityLocalStorage,
         addToCart,
-        vaciarCarrito,
+        emptyCart,
         removeFromCart,
-        totalCarrito
+        totalCart,
+        substFromCart
     }}>
         {children}
     </CartContext.Provider>

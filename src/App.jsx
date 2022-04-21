@@ -1,24 +1,22 @@
 
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
-import Componente404 from './components/Componente404';
+import Component404 from './components/Component404';
 import MenuMobile from './components/MenuMobile';
 import NavBar from './components/NavBar';
-import './assets/main.css'
 import CartContextProvider from './context/CartContext';
 import { getFirestoreApp } from './firebase/config';
+import './assets/main.css'
 
 function App() {
   getFirestoreApp()
   const [isOpen, setIsOpen] = useState(false)
-
   const toggleOpen = () => {
     setIsOpen(!isOpen);
-  }
-
+                          }
   return (
     <BrowserRouter>
       <CartContextProvider>
@@ -40,8 +38,8 @@ function App() {
             />
             <Route path="/detalle/:detalleId" element={<ItemDetailContainer />} />
             <Route path="/carrito" element={<Cart />} />
-            <Route path="/notFound" element={<Componente404 />} />
-            <Route path="/*" element={<Navigate to='/' /> }  />
+            <Route path="/notFound" element={<Component404 />} />
+            <Route path="/*" element={<Navigate to='/notFound' /> }  />
           </Routes>
         </div>
       </CartContextProvider>

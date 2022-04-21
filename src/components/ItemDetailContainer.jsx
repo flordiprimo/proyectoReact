@@ -15,7 +15,6 @@ useEffect(()=>{
   const queryDoc = doc(db, 'items', detalleId )
   getDoc(queryDoc)
   .then(resp => setProduct({id: resp.id, ... resp.data()}))
-  .catch(err => console.log(err))
   .finally(()=> setLoading(false))
 },[])
 

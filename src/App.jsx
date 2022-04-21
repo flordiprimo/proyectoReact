@@ -24,22 +24,23 @@ function App() {
           <NavBar toggleOpen={toggleOpen} />
           {isOpen && <MenuMobile  toggleOpen={toggleOpen} />}
           <Routes>
-            <Route path="/proyectoReact" element={
+            <Route path="/" element={
                                       <ItemListContainer
                                           greeting='Bienvenidxs a Friki'
                                       />
                                     }
             />
-            <Route path="/proyectoReact/categoria/:id" element={
+            <Route path="/categoria/:id" element={
                                       <ItemListContainer
                                           greeting='Bienvenidxs a Friki'
                                       />
                                     }
             />
-            <Route path="/proyectoReact/detalle/:detalleId" element={<ItemDetailContainer />} />
-            <Route path="/proyectoReact/carrito" element={<Cart />} />
-            <Route path="/proyectoReact/notFound" element={<Component404 />} />
-            <Route path="/proyectoReact/*" element={<Navigate to='/proyectoReact/notFound' /> }  />
+            <Route path="/detalle/:detalleId" element={<ItemDetailContainer />} />
+            <Route path="/carrito" element={<Cart />} />
+            <Route path="/proyectoReact" element={<Navigate to='/' /> }  />
+            <Route path="/notFound" element={<Component404 />} />
+            <Route path="/*" element={<Navigate to='/notFound' /> }  />
           </Routes>
         </div>
       </CartContextProvider>

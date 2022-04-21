@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/proyectoReact/static/css/main.52de6b4b.css",
-    "main.js": "/proyectoReact/static/js/main.e0d5e02d.js",
+    "main.js": "/proyectoReact/static/js/main.8613152e.js",
     "static/js/787.4e24438e.chunk.js": "/proyectoReact/static/js/787.4e24438e.chunk.js",
     "static/media/logofriki.png": "/proyectoReact/static/media/logofriki.63a7b30d1520c1ffb5d9.png",
     "index.html": "/proyectoReact/index.html",
     "main.52de6b4b.css.map": "/proyectoReact/static/css/main.52de6b4b.css.map",
-    "main.e0d5e02d.js.map": "/proyectoReact/static/js/main.e0d5e02d.js.map",
+    "main.8613152e.js.map": "/proyectoReact/static/js/main.8613152e.js.map",
     "787.4e24438e.chunk.js.map": "/proyectoReact/static/js/787.4e24438e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.52de6b4b.css",
-    "static/js/main.e0d5e02d.js"
+    "static/js/main.8613152e.js"
   ]
 }

@@ -18,7 +18,7 @@ function App() {
     setIsOpen(!isOpen);
                           }
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <CartContextProvider>
         <div>
           <NavBar toggleOpen={toggleOpen} />

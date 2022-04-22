@@ -44,10 +44,12 @@ function Form({ createOrder, handleChange, dataForm, gotStock, checkEmail, valid
                 required
             />
 
-            { validate === false && <p className='text-sm text-red-500 italic'>Los emails no coinciden</p> }
-            { validate === true && <p className='text-sm text-green-500 italic'>Los emails coinciden</p>}
+            { validate === false && <>
+                                        <button className="btn btn-disabled uppercase mt-6" type="submit" disabled >Finalizar compra</button>
+                                        <p className='text-sm text-red-500 italic'>Los emails no coinciden.</p>
+                                    </> }
+            { validate === true && <button className="btn btn-pink uppercase mt-6" type="submit">Finalizar compra</button>}
 
-            <button className="btn btn-pink uppercase mt-6" type="submit">Finalizar compra</button>
             {gotStock === false && <p className='mt-2 p-2 bg-red-200 border border-red-500'>Error al crear la orden: Alguno de los productos no tiene stock. Remover del carrito para continuar la compra</p>}
         </form>
     </>

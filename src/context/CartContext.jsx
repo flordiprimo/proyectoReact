@@ -1,4 +1,3 @@
-import { collection, documentId, getDocs, getFirestore, query, where } from 'firebase/firestore'
 import React, { createContext, useContext, useState, useEffect } from 'react'
 
 const CartContext = createContext([])

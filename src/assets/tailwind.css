@@ -41,3 +41,7 @@
 .notActive {
     @apply text-white px-4 py-4 hover:text-pink-500;
 }
+
+.btn-disabled{
+    @apply bg-neutral-500 text-white;
+}

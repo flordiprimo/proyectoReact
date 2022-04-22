@@ -53,7 +53,12 @@ export default function ItemDetail( {product}) {
                                     }
               { inputType === 'button' && <ButtonDetail/> }
               { inputType === 'noStock' && <p>Lo sentimos. No hay stock suficiente para agregar al carrito. El stock es {stock}</p>}
+              <div>
+                <h3 className='mt-2 font-bold'>Acerca de este disco</h3>
+                <p className='pt-2'>{product.description}</p>
+              </div>
           </div>
+        
       </div>
     </div>
     </>

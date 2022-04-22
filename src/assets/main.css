@@ -395,6 +395,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+.mx-6{
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
 .mb-1{
   margin-bottom: 0.25rem;
 }
@@ -469,6 +473,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .w-3\/4{
   width: 75%;
+}
+.w-\[95\%\]{
+  width: 95%;
 }
 .w-6{
   width: 1.5rem;
@@ -791,6 +798,13 @@ Ensure the default browser behavior of the `hidden` attribute.
 .notActive:hover{
   --tw-text-opacity: 1;
   color: rgb(236 72 153 / var(--tw-text-opacity));
+}
+
+.btn-disabled{
+  --tw-bg-opacity: 1;
+  background-color: rgb(115 115 115 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .hover\:bg-pink-500:hover{

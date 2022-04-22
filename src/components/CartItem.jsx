@@ -49,7 +49,7 @@ useEffect(() => {
     const queryDoc = doc(db, 'items', prod.id )
     getDoc(queryDoc)
     .then( resp => setStock(resp.data().stock))
-  }
+  }  // eslint-disable-next-line
 , [id])
   
 

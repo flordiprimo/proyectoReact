@@ -11,11 +11,11 @@ export default function ItemDetailContainer() {
   const { detalleId } = useParams()
 
 useEffect(()=>{
-  const db = getFirestore()
+  const db = getFirestore() 
   const queryDoc = doc(db, 'items', detalleId )
   getDoc(queryDoc)
-  .then(resp => setProduct({id: resp.id, ... resp.data()}))
-  .finally(()=> setLoading(false))
+  .then(resp => setProduct({id: resp.id, ...resp.data()}))
+  .finally(()=> setLoading(false)) // eslint-disable-next-line
 },[])
 
 return (

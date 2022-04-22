@@ -66,7 +66,7 @@ useEffect(() => {
             <button className="flex-none bg-black p-2 text-white hover:bg-pink-500" onClick={handleCountAdd}>+</button>
           </div>
           {stock < prod.quantity && <p className='italic text-red-500'>El stock disponible es: {stock}</p>}
-          {stock == prod.quantity && <p className='pt-2 italic text-green-500'>Máxima cantidad agregada</p>}
+          {stock === prod.quantity && <p className='pt-2 italic text-green-500'>Máxima cantidad agregada</p>}
           <p className="mt-2 text-black text-base">Precio: ${prod.price}</p>
         </div>
         <div className='w-1/6  px-4 py-4'>

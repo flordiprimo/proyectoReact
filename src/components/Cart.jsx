@@ -20,7 +20,7 @@ export default function Cart() {
 const checkEmail = (e) =>{
   const toValidate = dataForm.email
   const forValidating = e.target.value
-  if (toValidate == forValidating){
+  if (toValidate === forValidating){
       setValidate(true)
   }else{
     setValidate(false)
